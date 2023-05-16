@@ -2,7 +2,18 @@
 
 基于 Go 实现 OpenAI API 调用代理
 
-### 编译打包：
+## 编译打包：
+
+## 安装go
+```
+yum install go
+
+```
+## 克隆下来项目后下载项目包
+```
+go mod tidy
+
+```
 
 ```bash
 ./build.sh
