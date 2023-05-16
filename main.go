@@ -19,7 +19,11 @@ var (
 func main() {
 	println("hello golang!")
 	http.HandleFunc("/", handleRequest)
-	http.ListenAndServe(":8090", nil)
+	openaiPort := os.Getenv("OPENAI_PORT")
+	if openaiPort == "" {
+		openaiPort = "8090"
+	}	
+	http.ListenAndServe(":" + openaiPort, nil)
 }
 
 func handleRequest(w http.ResponseWriter, r *http.Request) {
