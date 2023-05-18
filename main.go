@@ -7,6 +7,8 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"flag"
+	"fmt"
 	"strings"
 	"time"
 )
@@ -18,12 +20,25 @@ var (
 
 func main() {
 	println("hello golang!")
-	http.HandleFunc("/", handleRequest)
-	openaiPort := os.Getenv("OPENAI_PORT")
-	if openaiPort == "" {
-		openaiPort = "8090"
-	}	
-	http.ListenAndServe(":" + openaiPort, nil)
+	// http.HandleFunc("/", handleRequest)
+	// openaiPort := os.Getenv("OPENAI_PORT")
+	// if openaiPort == "" {
+	// 	openaiPort = "8090"
+	// }	
+	// http.ListenAndServe(":" + openaiPort, nil)
+
+	var port string
+    flag.StringVar(&port, "port", "8090", "the port to listen on")
+    flag.Parse()
+
+
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintf(w, "Hello, world!")
+    })
+
+    fmt.Printf("Listening on port %s...\n", port)
+    http.ListenAndServe(":"+port, nil)
+
 }
 
 func handleRequest(w http.ResponseWriter, r *http.Request) {
