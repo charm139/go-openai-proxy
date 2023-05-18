@@ -31,16 +31,16 @@ go build -o open_peoxy_main main.go
 ```
 # 打包完成后赋可执行权限
 ```
-chmod 777 main
+chmod 777 open_peoxy_main
 ```
 # 运行
 ```
-./main
+./open_peoxy_main
 ```
 
 # 后台运行
 ```
-nohup ./main 1>info.log 2>&1 &
+nohup ./open_peoxy_main 1>info.log 2>&1 &
 ```
 ##测试
 curl -v 127.0.0.1:1890/v1
