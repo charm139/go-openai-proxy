@@ -26,7 +26,8 @@ go run main.go
 
 ##打包
 ```
-go build main.go
+##go build main.go
+go build -o open_peoxy_main main.go
 ```
 # 打包完成后赋可执行权限
 ```
