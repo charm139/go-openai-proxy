@@ -36,6 +36,28 @@ chmod 777 open_peoxy_main
 # 运行
 ```
 ./open_peoxy_main
+
+```
+
+## 命令行运行
+### 启动
+```
+./start.sh
+```
+
+### 停止
+```
+./stop.sh
+```
+
+
+## 多进程运行
+
+```
+./open_peoxy_main -port 8001
+./open_peoxy_main -port 8002
+./open_peoxy_main -port 8003
+./open_peoxy_main -port 8004
 ```
 
 # 后台运行
